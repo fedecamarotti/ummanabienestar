@@ -10,15 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* ⚠️ PLACEHOLDER — reemplazar por los colores exactos de ummana.ar cuando los tengas a mano */
     --color-bg:#F7F5F0;
     --color-bg-alt:#FFFFFF;
-    --color-text:#2B2B28;
-    --color-text-soft:#5C5C56;
-    --color-primary:#3E4F3B;
-    --color-primary-dark:#2C3A29;
-    --color-accent:#B08B5A;
-    --color-accent-dark:#8F6F44;
+    --color-text:#4A4A45;
+    --color-heading:#3A3A36;
+    --color-accent:#B9B8A5;
+    --color-accent-dark:#9E9D8A;
     --color-placeholder:#D9D9D9;
     --color-placeholder-text:#8A8A85;
     --max-width:1180px;
@@ -29,27 +26,18 @@
     font-family:'Montserrat',sans-serif;
     color:var(--color-text);
     background:var(--color-bg);
-    line-height:1.6;
+    line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
   img{max-width:100%;display:block;}
   a{text-decoration:none;color:inherit;}
   ul{list-style:none;}
   .container{max-width:var(--max-width);margin:0 auto;padding:0 24px;}
-  .eyebrow{
-    font-size:13px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    font-weight:700;
-    color:var(--color-accent-dark);
-    margin-bottom:12px;
-    display:block;
-  }
-  h1,h2,h3{font-weight:800;color:var(--color-primary-dark);}
-  h2{font-size:clamp(28px,4vw,38px);margin-bottom:18px;}
-  h3{font-size:22px;margin-bottom:10px;font-weight:700;}
-  p{font-weight:400;color:var(--color-text-soft);}
-  strong{font-weight:700;color:var(--color-text);}
+  h1,h2,h3{font-weight:800;color:var(--color-heading);}
+  h2{font-size:clamp(26px,4vw,34px);margin-bottom:14px;}
+  h3{font-size:20px;margin-bottom:8px;font-weight:700;}
+  p{font-weight:400;color:var(--color-text);}
+  strong{font-weight:700;color:var(--color-heading);}
 
   /* ===== BOTONES ===== */
   .btn-primary{
@@ -60,14 +48,14 @@
     font-size:14px;
     letter-spacing:0.5px;
     text-transform:uppercase;
-    padding:16px 32px;
+    padding:14px 30px;
     border-radius:4px;
     transition:background .25s ease, transform .25s ease;
     border:none;
     cursor:pointer;
   }
   .btn-primary:hover{background:var(--color-accent-dark);transform:translateY(-1px);}
-  .btn-center{display:flex;justify-content:center;margin-top:36px;}
+  .btn-center{display:flex;justify-content:center;margin-top:22px;}
 
   /* ===== HEADER ===== */
   header{
@@ -79,17 +67,12 @@
   .header-inner{
     max-width:var(--max-width);
     margin:0 auto;
-    padding:18px 24px;
+    padding:14px 24px;
     display:flex;
     align-items:center;
     justify-content:space-between;
   }
-  .logo{
-    font-size:22px;
-    font-weight:800;
-    letter-spacing:3px;
-    color:var(--color-primary-dark);
-  }
+  .logo img{height:38px;width:auto;display:block;}
   nav.main-nav{display:flex;align-items:center;gap:36px;}
   nav.main-nav ul{display:flex;gap:32px;}
   nav.main-nav a.nav-link{
@@ -108,7 +91,7 @@
     cursor:pointer;
     padding:6px;
   }
-  .menu-toggle span{width:24px;height:2px;background:var(--color-primary-dark);}
+  .menu-toggle span{width:24px;height:2px;background:var(--color-heading);}
 
   @media (max-width:860px){
     nav.main-nav ul{
@@ -153,13 +136,14 @@
   .split{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:60px;
+    gap:48px;
     align-items:center;
-    padding:90px 0;
+    padding:36px 0;
   }
   .split.reverse .split-media{order:2;}
   .split.reverse .split-text{order:1;}
-  .split-media .placeholder-photo{
+
+  .placeholder-photo{
     width:100%;
     aspect-ratio:4/5;
     background:var(--color-placeholder);
@@ -173,31 +157,72 @@
     text-transform:uppercase;
     font-size:14px;
   }
+
+  .photo-frame{
+    width:100%;
+    aspect-ratio:4/5;
+    border-radius:6px;
+    overflow:hidden;
+    position:relative;
+    background:var(--color-placeholder);
+  }
+  .photo-frame img.static-img{
+    width:100%;height:100%;object-fit:cover;
+  }
+
+  /* ===== CARRUSEL ===== */
+  .carousel-img{
+    position:absolute;
+    inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity .4s ease;
+  }
+  .carousel-img.active{opacity:1;}
+  .carousel-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:36px;height:36px;
+    border-radius:50%;
+    background:rgba(60,60,55,0.35);
+    border:none;
+    color:#fff;
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:2;
+    transition:background .2s ease;
+  }
+  .carousel-arrow:hover{background:rgba(60,60,55,0.55);}
+  .carousel-arrow.prev{left:12px;}
+  .carousel-arrow.next{right:12px;}
+
   @media (max-width:860px){
-    .split{grid-template-columns:1fr;gap:32px;padding:60px 0;}
+    .split{grid-template-columns:1fr;gap:20px;padding:26px 0;}
     .split.reverse .split-media{order:1;}
     .split.reverse .split-text{order:2;}
   }
 
-  section{padding:0 0;}
-  .section-title{text-align:center;padding-top:90px;}
+  .section-title{text-align:center;padding-top:40px;}
   .section-title h2{margin-bottom:0;}
-
-  .subrow{padding:70px 0 0;}
 
   /* ===== LISTAS DE BENEFICIOS ===== */
   .benefits{
     max-width:620px;
-    margin:50px auto 0;
+    margin:24px auto 0;
     text-align:center;
   }
-  .benefits h3{margin-bottom:20px;}
+  .benefits h3{margin-bottom:12px;}
   .benefits ul{display:inline-block;text-align:left;}
   .benefits li{
     position:relative;
-    padding-left:28px;
-    margin-bottom:12px;
-    color:var(--color-text-soft);
+    padding-left:26px;
+    margin-bottom:8px;
+    color:var(--color-text);
   }
   .benefits li::before{
     content:"✓";
@@ -207,29 +232,32 @@
     font-weight:700;
   }
 
-  .center-block{max-width:700px;margin:0 auto;text-align:center;padding:70px 0 0;}
-  .center-block p{margin-bottom:16px;}
+  .center-block{max-width:700px;margin:0 auto;text-align:center;padding:30px 0 0;}
+  .center-block p{margin-bottom:10px;}
 
-  .meditacion-sub{margin-top:28px;}
+  .meditacion-sub{margin-top:16px;}
   .meditacion-sub h4{
     font-size:16px;
     font-weight:700;
-    color:var(--color-text);
-    margin-top:20px;
-    margin-bottom:6px;
+    color:var(--color-heading);
+    margin-top:14px;
+    margin-bottom:5px;
   }
 
+  .section-pad{padding:36px 0;}
+  .section-pad-sm{padding-bottom:36px;}
+
   /* ===== FAQ ===== */
-  .faq{max-width:760px;margin:0 auto;padding:50px 0 100px;}
+  .faq{max-width:760px;margin:0 auto;padding:30px 0 50px;}
   .faq details{
     border-bottom:1px solid rgba(0,0,0,0.1);
-    padding:20px 0;
+    padding:14px 0;
   }
   .faq summary{
     cursor:pointer;
     font-weight:700;
     font-size:16px;
-    color:var(--color-primary-dark);
+    color:var(--color-heading);
     list-style:none;
     display:flex;
     justify-content:space-between;
@@ -244,7 +272,7 @@
     transition:transform .2s ease;
   }
   .faq details[open] summary::after{transform:rotate(45deg);}
-  .faq p{margin-top:12px;}
+  .faq p{margin-top:8px;}
 
   .bg-alt{background:var(--color-bg-alt);}
 
@@ -268,10 +296,10 @@
   .whatsapp-float svg{width:30px;height:30px;}
 
   footer{
-    background:var(--color-primary-dark);
+    background:var(--color-heading);
     color:#fff;
     text-align:center;
-    padding:36px 24px;
+    padding:24px;
     font-size:13px;
     letter-spacing:1px;
   }
@@ -281,7 +309,7 @@
 
 <header>
   <div class="header-inner">
-    <div class="logo">UMMANA</div>
+    <a class="logo" href="#top"><img src="images/logo.png" alt="Ummana"></a>
     <nav class="main-nav" id="mainNav">
       <ul>
         <li><a class="nav-link" href="#quienes-somos">Quiénes somos</a></li>
@@ -303,16 +331,17 @@
 </div>
 
 <!-- QUIÉNES SOMOS -->
-<section id="quienes-somos" class="container">
+<section id="quienes-somos" class="container section-pad">
   <div class="split">
     <div class="split-media">
-      <div class="placeholder-photo">foto</div>
+      <div class="photo-frame">
+        <img class="static-img" src="images/salon.png" alt="Salón Ummana">
+      </div>
     </div>
     <div class="split-text">
-      <span class="eyebrow">Quiénes somos</span>
       <h2>Quiénes somos</h2>
       <p>En Ummana creamos un espacio donde cada persona puede conectar con su cuerpo, su mente y su respiración, a su ritmo. Las clases son presenciales, en grupos reducidos y abiertas a todos los niveles.</p>
-      <div style="margin-top:28px;">
+      <div style="margin-top:20px;">
         <a href="#reserva" class="btn-primary">Reservá tu clase de prueba</a>
       </div>
     </div>
@@ -320,12 +349,8 @@
 </section>
 
 <!-- YOGA -->
-<section id="yoga" class="bg-alt">
+<section id="yoga" class="bg-alt section-pad">
   <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Nuestras prácticas</span>
-      <h2>Yoga</h2>
-    </div>
 
     <div class="split">
       <div class="split-media">
@@ -339,7 +364,13 @@
 
     <div class="split reverse">
       <div class="split-media">
-        <div class="placeholder-photo">foto</div>
+        <div class="photo-frame carousel" data-carousel>
+          <img class="carousel-img active" src="images/hatha1.png" alt="Hatha Yoga">
+          <img class="carousel-img" src="images/hatha2.png" alt="Hatha Yoga">
+          <img class="carousel-img" src="images/hatha3.png" alt="Hatha Yoga">
+          <button class="carousel-arrow prev" aria-label="Anterior">&#10094;</button>
+          <button class="carousel-arrow next" aria-label="Siguiente">&#10095;</button>
+        </div>
       </div>
       <div class="split-text">
         <h3>Hatha Yoga</h3>
@@ -349,7 +380,12 @@
 
     <div class="split">
       <div class="split-media">
-        <div class="placeholder-photo">foto</div>
+        <div class="photo-frame carousel" data-carousel>
+          <img class="carousel-img active" src="images/ashtanga1.png" alt="Ashtanga Vinyasa Yoga">
+          <img class="carousel-img" src="images/ashtanga2.png" alt="Ashtanga Vinyasa Yoga">
+          <button class="carousel-arrow prev" aria-label="Anterior">&#10094;</button>
+          <button class="carousel-arrow next" aria-label="Siguiente">&#10095;</button>
+        </div>
       </div>
       <div class="split-text">
         <h3>Ashtanga Vinyasa Yoga</h3>
@@ -371,24 +407,24 @@
     <div class="btn-center">
       <a href="#reserva" class="btn-primary">Reservá tu clase de prueba</a>
     </div>
-    <div style="padding-bottom:90px;"></div>
   </div>
 </section>
 
 <!-- TAI CHI -->
-<section id="taichi" class="container">
-  <div class="section-title">
-    <span class="eyebrow">Nuestras prácticas</span>
-    <h2>Tai Chi</h2>
-  </div>
-
+<section id="taichi" class="container section-pad">
   <div class="split">
     <div class="split-media">
-      <div class="placeholder-photo">foto</div>
+      <div class="photo-frame carousel" data-carousel>
+        <img class="carousel-img active" src="images/taichi1.png" alt="Tai Chi">
+        <img class="carousel-img" src="images/taichi2.png" alt="Tai Chi">
+        <button class="carousel-arrow prev" aria-label="Anterior">&#10094;</button>
+        <button class="carousel-arrow next" aria-label="Siguiente">&#10095;</button>
+      </div>
     </div>
     <div class="split-text">
+      <h2>Tai Chi</h2>
       <p>El Taichi Chuan es una práctica ancestral de origen marcial que combina movimientos suaves y fluidos con respiración consciente y enfoque mental.</p>
-      <p style="margin-top:14px;">Más que un ejercicio físico, es un camino hacia el bienestar integral.</p>
+      <p style="margin-top:10px;">Más que un ejercicio físico, es un camino hacia el bienestar integral.</p>
     </div>
   </div>
 
@@ -411,26 +447,23 @@
       <a href="#reserva" class="btn-primary">Reservá tu clase de prueba</a>
     </div>
   </div>
-  <div style="padding-bottom:90px;"></div>
 </section>
 
 <!-- MEDITACIÓN -->
-<section id="meditacion" class="bg-alt">
+<section id="meditacion" class="bg-alt section-pad">
   <div class="container">
-    <div class="section-title">
-      <span class="eyebrow">Nuestras prácticas</span>
-      <h2>Meditación</h2>
-    </div>
-
     <div class="split">
       <div class="split-media">
-        <div class="placeholder-photo">foto</div>
+        <div class="photo-frame">
+          <img class="static-img" src="images/meditación.png" alt="Meditación">
+        </div>
       </div>
       <div class="split-text">
+        <h2>Meditación</h2>
         <p>Actividades para frenar, escuchar y volver a lo esencial. Sin exigencias. Sin apuro. Con presencia y atención plena.</p>
 
         <div class="meditacion-sub">
-          <h3 style="margin-top:24px;">Encuentros de meditación semanales</h3>
+          <h3 style="margin-top:16px;">Encuentros de meditación semanales</h3>
           <p>Los encuentros de meditación son una invitación a bajar el ritmo, aquietar la mente y reconectar con vos mismo/a. Se realizan en grupos reducidos, en un ambiente cálido y de confianza, y duran una hora.</p>
 
           <h4>¿Qué hacemos en cada encuentro?</h4>
@@ -439,12 +472,11 @@
           <p><strong>Cierre con té grupal:</strong> Un espacio cálido para compartir experiencias, aprendizajes y generar vínculos.</p>
         </div>
 
-        <div style="margin-top:28px;">
+        <div style="margin-top:20px;">
           <a href="#reserva" class="btn-primary">Reservá tu clase de prueba</a>
         </div>
       </div>
     </div>
-    <div style="padding-bottom:40px;"></div>
   </div>
 </section>
 
@@ -487,11 +519,25 @@
 <script>
   const menuToggle = document.getElementById('menuToggle');
   const mainNav = document.getElementById('mainNav');
-  menuToggle.addEventListener('click', () => {
-    mainNav.classList.toggle('open');
-  });
+  menuToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => mainNav.classList.remove('open'));
+  });
+
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const imgs = carousel.querySelectorAll('.carousel-img');
+    let index = 0;
+    function show(i){
+      imgs.forEach((img, n) => img.classList.toggle('active', n === i));
+    }
+    carousel.querySelector('.prev').addEventListener('click', () => {
+      index = (index - 1 + imgs.length) % imgs.length;
+      show(index);
+    });
+    carousel.querySelector('.next').addEventListener('click', () => {
+      index = (index + 1) % imgs.length;
+      show(index);
+    });
   });
 </script>
 
