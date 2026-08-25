@@ -34,7 +34,7 @@
   ul{list-style:none;}
   .container{max-width:var(--max-width);margin:0 auto;padding:0 24px;}
   h1,h2,h3{font-weight:800;color:var(--color-heading);}
-  h2{font-size:clamp(26px,4vw,34px);margin-bottom:14px;}
+  h2{font-size:clamp(26px,4vw,34px);margin-bottom:14px;text-transform:uppercase;color:#666666;}
   h3{font-size:20px;margin-bottom:8px;font-weight:700;}
   p{font-weight:400;color:var(--color-text);}
   strong{font-weight:700;color:var(--color-heading);}
@@ -142,6 +142,9 @@
   }
   .split.reverse .split-media{order:2;}
   .split.reverse .split-text{order:1;}
+  .split + .split{
+    border-top:1px solid rgba(0,0,0,0.1);
+  }
 
   .placeholder-photo{
     width:100%;
@@ -352,6 +355,10 @@
 <section id="yoga" class="bg-alt section-pad">
   <div class="container">
 
+    <div class="section-title">
+      <h2>Yoga</h2>
+    </div>
+
     <div class="split">
       <div class="split-media">
         <div class="placeholder-photo">foto</div>
@@ -412,6 +419,10 @@
 
 <!-- TAI CHI -->
 <section id="taichi" class="container section-pad">
+  <div class="section-title">
+    <h2>Tai Chi Chuan</h2>
+  </div>
+
   <div class="split">
     <div class="split-media">
       <div class="photo-frame carousel" data-carousel>
@@ -422,16 +433,12 @@
       </div>
     </div>
     <div class="split-text">
-      <h2>Tai Chi</h2>
-      <p>El Taichi Chuan es una práctica ancestral de origen marcial que combina movimientos suaves y fluidos con respiración consciente y enfoque mental.</p>
-      <p style="margin-top:10px;">Más que un ejercicio físico, es un camino hacia el bienestar integral.</p>
+      <p>El Tai Chi Chuan es una práctica ancestral de origen marcial que combina movimientos suaves y fluidos con respiración consciente y enfoque mental. Más que un ejercicio físico, es un camino hacia el bienestar integral.</p>
+      <p style="margin-top:10px;">Conecta cuerpo y mente, ayudándote a estar más centrado/a, en armonía y presente en el aquí y ahora. Es ideal para todas las edades y niveles, ya que no requiere experiencia previa y se adapta al ritmo de cada persona.</p>
     </div>
   </div>
 
   <div class="center-block">
-    <p>El Taichi conecta cuerpo y mente, ayudándote a estar más centrado/a, en armonía y presente en el aquí y ahora.</p>
-    <p>Es ideal para todas las edades y niveles, ya que no requiere experiencia previa y se adapta al ritmo de cada persona.</p>
-
     <div class="benefits">
       <h3>Beneficios del Taichi</h3>
       <ul>
@@ -452,6 +459,9 @@
 <!-- MEDITACIÓN -->
 <section id="meditacion" class="bg-alt section-pad">
   <div class="container">
+    <div class="section-title">
+      <h2>Meditación</h2>
+    </div>
     <div class="split">
       <div class="split-media">
         <div class="photo-frame">
@@ -459,18 +469,8 @@
         </div>
       </div>
       <div class="split-text">
-        <h2>Meditación</h2>
-        <p>Actividades para frenar, escuchar y volver a lo esencial. Sin exigencias. Sin apuro. Con presencia y atención plena.</p>
-
-        <div class="meditacion-sub">
-          <h3 style="margin-top:16px;">Encuentros de meditación semanales</h3>
-          <p>Los encuentros de meditación son una invitación a bajar el ritmo, aquietar la mente y reconectar con vos mismo/a. Se realizan en grupos reducidos, en un ambiente cálido y de confianza, y duran una hora.</p>
-
-          <h4>¿Qué hacemos en cada encuentro?</h4>
-          <p><strong>Meditación sentada:</strong> Una práctica guiada para aquietar la mente y conectar con el presente.</p>
-          <p><strong>Lectura y reflexión:</strong> Un momento para integrar la enseñanza y abrir el diálogo grupal.</p>
-          <p><strong>Cierre con té grupal:</strong> Un espacio cálido para compartir experiencias, aprendizajes y generar vínculos.</p>
-        </div>
+        <p>Los encuentros de meditación son una invitación a bajar el ritmo, aquietar la mente y reconectar con vos mismo/a. Se realizan en grupos reducidos, en un ambiente cálido y de confianza.</p>
+        <p style="margin-top:10px;">Primero realizamos una meditación sentada, guiada para aquietar la mente y conectar con el presente. Luego una lectura/reflexión, un momento para integrar la enseñanza y abrir el diálogo grupal. Y para finalizar un cierre con té grupal, un espacio cálido para compartir experiencias, aprendizajes y generar vínculos.</p>
 
         <div style="margin-top:20px;">
           <a href="#reserva" class="btn-primary">Reservá tu clase de prueba</a>
